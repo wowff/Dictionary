@@ -56,8 +56,6 @@ public class Generator implements DictionaryGenerator
     }
 
 
-
-
     private String getString() //генерация случайной строки
     {
         Random rand = new Random();
