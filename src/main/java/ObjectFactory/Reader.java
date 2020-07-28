@@ -9,16 +9,22 @@ import java.io.File;
 
 public class Reader implements DictionaryReader
 {
-    public Dictionary read() throws JAXBException
+    public Dictionary read() 
     {
-        File file = new File("data.xml");//открываем файл с данными
+        try {
+            File file = new File("data.xml");//открываем файл с данными
 
-        JAXBContext context = JAXBContext.newInstance(Dictionary.class);
+            JAXBContext context = JAXBContext.newInstance(Dictionary.class);
 
-        //создание объекта unmarshaller, который выполняет десериализацию
-        Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
-        Dictionary dic = (Dictionary) jaxbUnmarshaller.unmarshal(file);
+            //создание объекта unmarshaller, который выполняет десериализацию
+            Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
+            Dictionary dic = (Dictionary) jaxbUnmarshaller.unmarshal(file);
 
-        return dic;
+            return dic;
+        }
+        catch(JAXBException e)
+        {
+           return null;
+        }
     }
 }

@@ -5,5 +5,5 @@ import javax.xml.bind.JAXBException;
 
 public interface DictionaryReader// интерфейс считывателя данных из файла
 {
-    public Dictionary read()throws JAXBException;
+    public Dictionary read();
 }
